@@ -9,7 +9,11 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Patch OS vulnerabilities
-RUN apt-get update && apt-get upgrade -y && pip install --upgrade pip wheel==0.46.2 setuptools && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y --no-install-recommends tesseract-ocr \
+    && pip install --upgrade pip wheel==0.46.2 setuptools \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /root/.local /root/.local
 COPY . .
