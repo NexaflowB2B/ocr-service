@@ -17,4 +17,4 @@ ENV PATH=/root/.local/bin:$PATH
 ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8007
-CMD ["uvicorn", "ocr_service.main:app", "--host", "0.0.0.0", "--port", "8007"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8007"]
